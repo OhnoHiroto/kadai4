@@ -10,14 +10,15 @@ check(){
     elif expr "$1" : "^[a-z]*$" >&/dev/null;then
        echo -e "Error!"                                 
        exit 1
-    
-    elif [ "$1" -eq 0 ];then					
-       echo -e "Error!"					
-       exit 1
 
     elif  expr "$1" : "^[0-9]*$" >&/dev/null;then
+        if [ "$1" -eq 0 ];then
+            echo -e "Error!"
+            exit 1
+        
+        else
         return 0
-
+        fi
  
     else
         echo -e "Error!"

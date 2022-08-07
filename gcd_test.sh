@@ -57,11 +57,20 @@ echo "Error!" > $ans
 ./gcd.sh string 10 > $result
 diff $ans $result || echo "error in test 9" >> $error
 
-echo "test 9_異常動作確認(引数が文字列_2)"
+echo "test 10_異常動作確認(引数が文字列_2)"
 echo "Error!" > $ans
 ./gcd.sh 4 string > $result
 diff $ans $result || echo "error in test 10" >> $error
 
+echo "test 11_異常動作確認(引数が浮動小数点数_1)"
+echo "Error!" > $ans
+./gcd.sh 4.5 9  string > $result
+diff $ans $result || echo "error in test 11" >> $error
+
+echo "test 12_異常動作確認(引数が浮動小数点数_2)"
+echo "Error!" > $ans
+./gcd.sh 9 4.5  string > $result
+diff $ans $result || echo "error in test 12" >> $error
 
 #エラー発生時の処理
 if [ -f $error ]; then
