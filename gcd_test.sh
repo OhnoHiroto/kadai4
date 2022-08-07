@@ -32,45 +32,50 @@ echo "Error!" > $ans
 ./gcd.sh > $result
 diff $ans $result || echo "error in test 4" >> $error
 
-echo "test 5_異常動作確認(引数がマイナス_1)"
+echo "test 5_異常動作確認(引数3つ)"
+ 31 echo "Error!" > $ans
+ 32 ./gcd.sh 4 12 16 > $result
+ 33 diff $ans $result || echo "error in test 5" >> $error
+
+echo "test 6_異常動作確認(引数がマイナス_1)"
 echo "Error!" > $ans
 ./gcd.sh -4 10 > $result
-diff $ans $result || echo "error in test 5" >> $error
-
-echo "test 6_異常動作確認(引数がマイナス_2)"
-echo "Error!" > $ans
-./gcd.sh 28 -21 > $result
 diff $ans $result || echo "error in test 6" >> $error
 
-echo "test 7_異常動作確認(引数が0_1)"
+echo "test 7_異常動作確認(引数がマイナス_2)"
 echo "Error!" > $ans
-./gcd.sh 0 10 > $result
+./gcd.sh 28 -21 > $result
 diff $ans $result || echo "error in test 7" >> $error
 
-echo "test 8_異常動作確認(引数が0_2)"
+echo "test 8_異常動作確認(引数が0_1)"
 echo "Error!" > $ans
-./gcd.sh 4 0 > $result
+./gcd.sh 0 10 > $result
 diff $ans $result || echo "error in test 8" >> $error
 
-echo "test 9_異常動作確認(引数が文字列_1)"
+echo "test 9_異常動作確認(引数が0_2)"
 echo "Error!" > $ans
-./gcd.sh string 10 > $result
+./gcd.sh 4 0 > $result
 diff $ans $result || echo "error in test 9" >> $error
 
-echo "test 10_異常動作確認(引数が文字列_2)"
+echo "test 10_異常動作確認(引数が文字列_1)"
 echo "Error!" > $ans
-./gcd.sh 4 string > $result
+./gcd.sh string 10 > $result
 diff $ans $result || echo "error in test 10" >> $error
 
-echo "test 11_異常動作確認(引数が浮動小数点数_1)"
+echo "test 11_異常動作確認(引数が文字列_2)"
 echo "Error!" > $ans
-./gcd.sh 4.5 9  string > $result
+./gcd.sh 4 string > $result
 diff $ans $result || echo "error in test 11" >> $error
 
-echo "test 12_異常動作確認(引数が浮動小数点数_2)"
+echo "test 12_異常動作確認(引数が浮動小数点数_1)"
+echo "Error!" > $ans
+./gcd.sh 4.5 9  string > $result
+diff $ans $result || echo "error in test 12" >> $error
+
+echo "test 13_異常動作確認(引数が浮動小数点数_2)"
 echo "Error!" > $ans
 ./gcd.sh 9 4.5  string > $result
-diff $ans $result || echo "error in test 12" >> $error
+diff $ans $result || echo "error in test 13" >> $error
 
 #エラー発生時の処理
 if [ -f $error ]; then

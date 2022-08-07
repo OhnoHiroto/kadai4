@@ -36,6 +36,10 @@ gcd() {
     echo "$1"
 }
 
+if [ $# -gt 2 ]; then
+    echo -e "Error!"
+    exit 1
+fi
 
 check $1
 check $2
