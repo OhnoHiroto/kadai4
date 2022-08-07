@@ -33,9 +33,9 @@ echo "Error!" > $ans
 diff $ans $result || echo "error in test 4" >> $error
 
 echo "test 5_異常動作確認(引数3つ)"
- 31 echo "Error!" > $ans
- 32 ./gcd.sh 4 12 16 > $result
- 33 diff $ans $result || echo "error in test 5" >> $error
+echo "Error!" > $ans
+./gcd.sh 4 12 16 > $result
+diff $ans $result || echo "error in test 5" >> $error
 
 echo "test 6_異常動作確認(引数がマイナス_1)"
 echo "Error!" > $ans
