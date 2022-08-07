@@ -1,0 +1,13 @@
+name: run-test
+on:
+  push:
+    branches:
+      - master
+   workflow_dispatch:
+jobs:
+  check_gcd:
+   runs-on: ubuntu-latest
+    steps:
+      - name: execute gcd_test
+        run: ./gcd_test.sh
+   
