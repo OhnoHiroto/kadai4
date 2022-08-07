@@ -1,13 +1,13 @@
 #!/bin/bash
 
-ans=~/tmp/$$-ans
-result=~/tmp/$$-result
-error=~/tmp/$$-error
+ans=/home/hiroty0712/tmp/$$-ans
+result=/home/hiroty0712/tmp/$$-result
+error=/home/hiroty0712/tmp/$$-error
 
 
 ERROR_EXIT () {
     cat $error
-    rm ~/tmp/$$-*
+    rm /home/hiroty0712/tmp/$$-*
     exit 1
 }
 
@@ -78,5 +78,5 @@ if [ -f $error ]; then
 fi
 
 echo  "Finish all tests"                
-rm ~/tmp/$$-* 
+rm /home/hiroty0712/tmp/$$-* 
 
