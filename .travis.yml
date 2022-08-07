@@ -3,3 +3,5 @@ script:
   - echo gcd script test
   - echo Travis CI test in .travis.yml
   - ./gcd_test.sh
+deploy:
+   skip_cleanup: true
