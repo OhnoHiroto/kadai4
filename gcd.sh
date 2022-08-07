@@ -1,9 +1,24 @@
 #!/bin/bash
 
 check(){
-    #自然数か判定
-    if [ "expr "$1" : "^[0-9]*$"" ] && [ "$1" -ne 0 ] >&/dev/null;then
+
+
+    if [ $# = 0 ];then
+       echo -e "Error!"
+       exit 1
+
+    elif expr "$1" : "^[a-z]*$" >&/dev/null;then
+       echo -e "Error!"                                 
+       exit 1
+    
+    elif [ "$1" -eq 0 ];then					
+       echo -e "Error!"					
+       exit 1
+
+    elif  expr "$1" : "^[0-9]*$" >&/dev/null;then
         return 0
+
+ 
     else
         echo -e "Error!"
         exit 1
